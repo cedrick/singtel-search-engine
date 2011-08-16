@@ -89,6 +89,27 @@
 								from NSI_SINGTEL_MID_ARPU_GRPD.dbo.I3_NSI_SINGTEL_MID_ARPU_GRPD_CH0
 								where PhoneNumber = '$id' order by callplacedtime 
 								";
+					}elseif($campaign == 'NEWBORN_GRP1')
+					{
+						 $sql = "SELECT
+								'NEWBORN_GRP1' as Campaign,reason,finishcode,length,agentid,callid,callplacedtime,PhoneNumber
+								from NSI_SINGTEL_NEWBORN_GRP1.dbo.I3_NSI_SINGTEL_NEWBORN_GRP1_CH0
+								where PhoneNumber = '$id' order by callplacedtime 
+								";
+					}elseif($campaign == 'NEWBORN_GRP2')
+					{
+						 $sql = "SELECT
+								'NEWBORN_GRP2' as Campaign,reason,finishcode,length,agentid,callid,callplacedtime,PhoneNumber
+								from NSI_SINGTEL_NEWBORN_GRP2.dbo.I3_NSI_SINGTEL_NEWBORN_GRP2_CH0
+								where PhoneNumber = '$id' order by callplacedtime 
+								";
+					}elseif($campaign == 'NEWBORN_GRP3')
+					{
+						 $sql = "SELECT
+								'NEWBORN_GRP3' as Campaign,reason,finishcode,length,agentid,callid,callplacedtime,PhoneNumber
+								from NSI_SINGTEL_NEWBORN_GRP3.dbo.I3_NSI_SINGTEL_NEWBORN_GRP3_CH0
+								where PhoneNumber = '$id' order by callplacedtime 
+								";
 					}
 						
 						
