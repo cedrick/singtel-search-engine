@@ -72,7 +72,7 @@
 					{
 						 $sql = "SELECT
 								'MID_ARPU' as Campaign,reason,finishcode,length,agentid,callid,callplacedtime,PhoneNumber
-								from  I3_NSI_SINGTEL_MID_ARPU_GRPD_CH0
+								from  NSI_SINGTEL_MID_ARPU.dbo.I3_NSI_SINGTEL_MID_ARPU_CH0
 								where PhoneNumber = '$id' order by callplacedtime 
 								";
 					}elseif($campaign == 'MID_ARPU_GRPC')
