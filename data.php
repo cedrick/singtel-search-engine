@@ -28,7 +28,7 @@
 								where PhoneNumber = '$id' order by callplacedtime ";
 					}elseif($campaign == 'MIOHOME')
 					{
-						$sql = "SELECT
+						 $sql = "SELECT
 								'MIOHOME' as Campaign,reason,finishcode,length,agentid,callid,callplacedtime,PhoneNumber
 								from  NSI_SINGTEL_MIO_HOME.dbo.I3_NSI_SINGTEL_MIO_HOME_CH0
 								where PhoneNumber = '$id' order by callplacedtime ";
@@ -43,12 +43,12 @@
 					}elseif($campaign == 'ACQ_STM' )
 					{
 						$sql = "SELECT
-								'ACQ_STM' as Campaign,reason,finishcode,length,agentid,callid,callplacedtime,PhoneNumber
+						 		'ACQ_STM' as Campaign,reason,finishcode,length,agentid,callid,callplacedtime,PhoneNumber
 								from  NSI_SINGTEL_ACQ_STM.dbo.I3_NSI_SINGTEL_ACQ_STM_CH0
 								where PhoneNumber = '$id' order by callplacedtime ";
 					}elseif($campaign == 'BPL')
 					{
-						$sql = "SELECT
+						 $sql = "SELECT
 								'BPL' as Campaign,reason,finishcode,length,agentid,callid,callplacedtime,PhoneNumber
 								from  NSI_SINGTEL_BPL.dbo.I3_NSI_SINGTEL_BPL_CH0
 								where PhoneNumber = '$id' order by callplacedtime 
@@ -61,30 +61,30 @@
 								from  NSI_SINGTEL_FTTH.dbo.I3_NSI_SINGTEL_FTTH_CH0
 								where PhoneNumber = '$id' order by callplacedtime 
 								";
-					}elseif($campaign = 'HR_STM_DEL')
+					}elseif($campaign == 'HR_STM_DEL')
 					{
-						$sql = "SELECT
+						 $sql = "SELECT
 								'HR_STM_DEL' as Campaign,reason,finishcode,length,agentid,callid,callplacedtime,PhoneNumber
 								from  NSI_SINGTEL_HR_STM_DEL.dbo.I3_NSI_SINGTEL_HR_STM_DEL_CH0
 								where PhoneNumber = '$id' order by callplacedtime 
 								";
-					}elseif($campaign = 'MID_ARPU')
+					}elseif($campaign == 'MID_ARPU')
 					{
-						$sql = "SELECT
+						 $sql = "SELECT
 								'MID_ARPU' as Campaign,reason,finishcode,length,agentid,callid,callplacedtime,PhoneNumber
-								from  NSI_SINGTEL_MID_ARPU.dbo.I3_NSI_SINGTEL_MID_ARPU_CH0
+								from  I3_NSI_SINGTEL_MID_ARPU_GRPD_CH0
 								where PhoneNumber = '$id' order by callplacedtime 
 								";
-					}elseif($campaign = 'MID_ARPU_GRPC')
+					}elseif($campaign == 'MID_ARPU_GRPC')
 					{
-						$sql = "SELECT
+						 $sql = "SELECT
 								'MID_ARPU_GRPC' as Campaign,reason,finishcode,length,agentid,callid,callplacedtime,PhoneNumber
 								from NSI_SINGTEL_MID_ARPU_GRPC.dbo.I3_NSI_SINGTEL_MID_ARPU_GRPC_CH0
 								where PhoneNumber = '$id' order by callplacedtime 
 								";
-					}elseif($campaign = 'MID_ARPU_GRPD')
+					}elseif($campaign == 'MID_ARPU_GRPD')
 					{
-						$sql = "SELECT
+						 $sql = "SELECT
 								'MID_ARPU_GRPD' as Campaign,reason,finishcode,length,agentid,callid,callplacedtime,PhoneNumber
 								from NSI_SINGTEL_MID_ARPU_GRPD.dbo.I3_NSI_SINGTEL_MID_ARPU_GRPD_CH0
 								where PhoneNumber = '$id' order by callplacedtime 
