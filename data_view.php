@@ -41,11 +41,11 @@
 									UNION
 									SELECT 'MID_ARPU_GRPD' as Campaign,PhoneNumber,CUST_NAME,CUST_NRIC,NRIC,Address,Application_Date,Activation_Date,Appointment_Time,ADSL_No,Mobile_No,IPTV_No,Installation_Address,Applicant_Name,Product,Speed,SSP,Product_Offer,Secondary_Contact,Customer_Request from NSI_SINGTEL_MID_ARPU_GRPD.dbo.Calllist where $query
 									UNION
-									SELECT 'NEWBORN_GRP1' as Campaign,PhoneNumber,CUST_NAME,CUST_NRIC,NRIC,Address,Application_Date,Activation_Date,Appointment_Time,ADSL_No,Mobile_No,IPTV_No,Installation_Address,Applicant_Name,Product,Speed,SSP,Product_Offer,Secondary_Contact,Customer_Request from NSI_SINGTEL_NEWBORN_GRP1.dbo.Calllist where $query2
+									SELECT 'NEWBORN_GRP1' as Campaign,PhoneNumber,CUST_NAME,CUST_NRIC,NRIC,Address,Application_Date,Activation_Date,Appointment_Time,ADSL_No,Mobile_No,IPTV_No,Installation_Address,Applicant_Name,Product,Speed,SSP,Product_Offer,Secondary_Contact,Customer_Request from NSI_SINGTEL_NEWBORN_GRP1.dbo.Calllist where $query
 									UNION
-									SELECT 'NEWBORN_GRP2' as Campaign,PhoneNumber,CUST_NAME,CUST_NRIC,NRIC,Address,Application_Date,Activation_Date,Appointment_Time,ADSL_No,Mobile_No,IPTV_No,Installation_Address,Applicant_Name,Product,Speed,SSP,Product_Offer,Secondary_Contact,Customer_Request from NSI_SINGTEL_NEWBORN_GRP2.dbo.Calllist where $query2
+									SELECT 'NEWBORN_GRP2' as Campaign,PhoneNumber,CUST_NAME,CUST_NRIC,NRIC,Address,Application_Date,Activation_Date,Appointment_Time,ADSL_No,Mobile_No,IPTV_No,Installation_Address,Applicant_Name,Product,Speed,SSP,Product_Offer,Secondary_Contact,Customer_Request from NSI_SINGTEL_NEWBORN_GRP2.dbo.Calllist where $query
 									UNION
-									SELECT 'NEWBORN_GRP3' as Campaign,PhoneNumber,CUST_NAME,CUST_NRIC,NRIC,Address,Application_Date,Activation_Date,Appointment_Time,ADSL_No,Mobile_No,IPTV_No,Installation_Address,Applicant_Name,Product,Speed,SSP,Product_Offer,Secondary_Contact,Customer_Request from NSI_SINGTEL_NEWBORN_GRP3.dbo.Calllist where $query2
+									SELECT 'NEWBORN_GRP3' as Campaign,PhoneNumber,CUST_NAME,CUST_NRIC,NRIC,Address,Application_Date,Activation_Date,Appointment_Time,ADSL_No,Mobile_No,IPTV_No,Installation_Address,Applicant_Name,Product,Speed,SSP,Product_Offer,Secondary_Contact,Customer_Request from NSI_SINGTEL_NEWBORN_GRP3.dbo.Calllist where $query
 									";
 							$result=mssql_query($sql);
 							echo "<table border=0 width=1000 align=center cellspacing=1 cellpadding=2 bgcolor=#E9E9E9 style='font-size:12px'>";
