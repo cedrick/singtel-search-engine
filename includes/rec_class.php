@@ -20,7 +20,7 @@ Class Check extends Connection
 	 function main($search,$rad_id)
 	 { 
 		
-	    if($this->connectdb("NSI_SINGTEL"))
+	    if($this->connectdb("NSI_MEDIA_3"))
 		{
 	       
 			//$permission=$_COOKIE['allowsave'];
@@ -30,60 +30,34 @@ Class Check extends Connection
 		
 	if($escape != NULL)
 	{
-		if($escape!= NULL && $rad_id == 3)
+		if($escape!= NULL && $rad_id == 1)
 		{
-			$query.= "NRIC = '$escape' or  CODE2 = '$escape' ";	
-			$query2.= "CUST_NRIC = '$escape' OR NRIC = '$escape' ";	
-			$query3.= " Cust_NRIC = '$escape' OR NRIC = '$escape' ";	
+			$query.= "PhoneNumber = '$escape' ";	
+			
 			
 		
 		}elseif($escape!= NULL && $rad_id == 2)
 		{
-			$query.= "NAME like '%$escape%' ";
-			$query2.= "CUST_NAME like '%$escape%' ";
-			$query3.= "CUST_NAME like '%$escape%' ";		
+			$query.= "First_Name like '%$escape%' ";
+			
 			
 		
-		}elseif($escape!= NULL && $rad_id == 1)
-		{
-			$query.= "PhoneNumber = '$escape' ";
-			$query2.= "PhoneNumber = '$escape' ";
-			$query3.= "PhoneNumber = '$escape' ";	
+		}//elseif($escape!= NULL && $rad_id == 1)
+		//{
+			//$query.= "PhoneNumber = '$escape' ";
+			//$query2.= "PhoneNumber = '$escape' ";
+			//$query3.= "PhoneNumber = '$escape' ";	
 			
 		
-		}//elseif($escape!= NULL && $rad_id == 0)
+	//}elseif($escape!= NULL && $rad_id == 0)
 		//{
 			//$query.= "Customer_Request = '$escape' ";	
 		
 		//}
 				
 			$sql= "
-				SELECT 'DEL' as Campaign,PhoneNumber,Name,CODE2,NRIC,Address,Application_Date,Activation_Date,Appointment_Time,ADSL_No,Mobile_No,IPTV_No,Installation_Address,Applicant_Name,Product,Speed,SSP,Product_Offer,Secondary_Contact,Customer_Request from  NSI_SINGTEL.dbo.Calllist where $query 
-				UNION 
-				SELECT 'MIOHOME' as Campaign,PhoneNumber,Name,CODE2,NRIC,Address,Application_Date,Activation_Date,Appointment_Time,ADSL_No,Mobile_No,IPTV_No,Installation_Address,Applicant_Name,Product,Speed,SSP,Product_Offer,Secondary_Contact,Customer_Request from  NSI_SINGTEL_MIO_HOME.dbo.Calllist where $query 
-				UNION 
-				SELECT 'SNBB' as Campaign,PhoneNumber,Name,CODE2,NRIC,Address,Application_Date,Activation_Date,Appointment_Time,ADSL_No,Mobile_No,IPTV_No,Installation_Address,Applicant_Name,Product,Speed,SSP,NULL,NULL,NULL from NSI_SINGTEL_SNBB.dbo.Calllist where $query 
-				UNION 
-				SELECT 'ACQ_STM' as Campaign,PhoneNumber,CUST_NAME,CUST_NRIC,NRIC,Address,Application_Date,Activation_Date,Appointment_Time,ADSL_No,Mobile_No,IPTV_No,Installation_Address,Applicant_Name,Product,Speed,SSP,NULL,NULL,NULL from NSI_SINGTEL_ACQ_STM.dbo.Calllist where $query2
-				UNION 
-				SELECT 'BPL' as Campaign,PhoneNumber,CUST_NAME,Cust_NRIC,NRIC,Address,Application_Date,Activation_Date,Appointment_Time,ADSL_No,Mobile_No,IPTV_No,Installation_Address,Applicant_Name,Product,Speed,SSP,Product_Offer,Secondary_Contact,Customer_Request from  NSI_SINGTEL_BPL.dbo.Calllist where $query3
-				UNION
-				SELECT 'FTTH' as Campaign,PhoneNumber,CUST_NAME,CUST_NRIC,NRIC,Address,Application_Date,Activation_Date,Appointment_Time,ADSL_No,Mobile_No,IPTV_No,Installation_Address,Applicant_Name,Product,Speed,SSP,Product_Offer,Secondary_Contact,Customer_Request from NSI_SINGTEL_FTTH.dbo.Calllist where $query2
-				UNION
-				SELECT 'HR_STM_DEL' as Campaign,PhoneNumber,CUST_NAME,CUST_NRIC,NRIC,Address,Application_Date,Activation_Date,Appointment_Time,ADSL_No,Mobile_No,IPTV_No,Installation_Address,Applicant_Name,Product,Speed,SSP,Product_Offer,Secondary_Contact,Customer_Request from NSI_SINGTEL_HR_STM_DEL.dbo.Calllist where $query2
-				UNION
-				SELECT 'MID_ARPU' as Campaign,PhoneNumber,CUST_NAME,CUST_NRIC,NRIC,Address,Application_Date,Activation_Date,Appointment_Time,ADSL_No,Mobile_No,IPTV_No,Installation_Address,Applicant_Name,Product,Speed,SSP,Product_Offer,Secondary_Contact,Customer_Request from NSI_SINGTEL_MID_ARPU.dbo.Calllist where $query2
-				UNION
-				SELECT 'MID_ARPU_GRPC' as Campaign,PhoneNumber,CUST_NAME,CUST_NRIC,NRIC,Address,Application_Date,Activation_Date,Appointment_Time,ADSL_No,Mobile_No,IPTV_No,Installation_Address,Applicant_Name,Product,Speed,SSP,Product_Offer,Secondary_Contact,Customer_Request from NSI_SINGTEL_MID_ARPU_GRPC.dbo.Calllist where $query2
-				UNION
-				SELECT 'MID_ARPU_GRPD' as Campaign,PhoneNumber,CUST_NAME,CUST_NRIC,NRIC,Address,Application_Date,Activation_Date,Appointment_Time,ADSL_No,Mobile_No,IPTV_No,Installation_Address,Applicant_Name,Product,Speed,SSP,Product_Offer,Secondary_Contact,Customer_Request from NSI_SINGTEL_MID_ARPU_GRPD.dbo.Calllist where $query2
-				UNION
-				SELECT 'NEWBORN_GRP1' as Campaign,PhoneNumber,CUST_NAME,CUST_NRIC,NRIC,Address,Application_Date,Activation_Date,Appointment_Time,ADSL_No,Mobile_No,IPTV_No,Installation_Address,Applicant_Name,Product,Speed,SSP,Product_Offer,Secondary_Contact,Customer_Request from NSI_SINGTEL_NEWBORN_GRP1.dbo.Calllist where $query2
-				UNION
-				SELECT 'NEWBORN_GRP2' as Campaign,PhoneNumber,CUST_NAME,CUST_NRIC,NRIC,Address,Application_Date,Activation_Date,Appointment_Time,ADSL_No,Mobile_No,IPTV_No,Installation_Address,Applicant_Name,Product,Speed,SSP,Product_Offer,Secondary_Contact,Customer_Request from NSI_SINGTEL_NEWBORN_GRP2.dbo.Calllist where $query2
-				UNION
-				SELECT 'NEWBORN_GRP3' as Campaign,PhoneNumber,CUST_NAME,CUST_NRIC,NRIC,Address,Application_Date,Activation_Date,Appointment_Time,ADSL_No,Mobile_No,IPTV_No,Installation_Address,Applicant_Name,Product,Speed,SSP,Product_Offer,Secondary_Contact,Customer_Request from NSI_SINGTEL_NEWBORN_GRP3.dbo.Calllist where $query2
-				";
+					SELECT PhoneNumber,First_Name,Last_Name,Title,Company,Address,Address2,State,Zip_Code from Calllist where $query
+				 ";
 				
 				$result=mssql_query($sql);
 			 	$count=mssql_num_rows($result);
@@ -95,19 +69,15 @@ Class Check extends Connection
 					    $x=0; 
 						echo "<table width=1100 border=0 align=center cellspacing=1 cellpadding=2 bgcolor=#E9E9E9 style='font-size:12px'>";
 						echo"<td>"."<b>"."#"."</b>"."</td>";
-						echo"<td>"."<b>"."Campaign"."</b>"."</td>";
 						echo"<td>"."<b>"."PhoneNumber"."</b>"."</td>";
-						echo"<td>"."<b>"."Name"."</b>"."</td>";
-						echo"<td>"."<b>"."NRIC"."</b>"."</td>";
+						echo"<td>"."<b>"."First Name"."</b>"."</td>";
+						echo"<td>"."<b>"."Last Name"."</b>"."</td>";
+						echo"<td>"."<b>"."Company"."</b>"."</td>";
+						echo"<td>"."<b>"."Title"."</b>"."</td>";
 						echo"<td>"."<b>"."Address" ."</b>"."</td>";
-						echo"<td>"."<b>"."Application Date" ."</b>"."</td>";
-						echo"<td>"."<b>"."Activation Date" ."</b>"."</td>";
-						echo"<td>"."<b>"." Appointment Time" ."</b>"."</td>";
-						echo"<td>"."<b>"."ADSL No" ."</b>"."</td>";
-						echo"<td>"."<b>"."Mobile No" ."</b>"."</td>";
-						echo"<td>"."<b>"."Customer Request" ."</b>"."</td>";
-						echo"<td>"."<b>"."View All Info" ."</b>"."</td>";
-						echo "<td>"."<b>"." View Call History"."</b>"."</td>";
+						echo"<td>"."<b>"."Adress2" ."</b>"."</td>";
+						echo"<td>"."<b>"."State" ."</b>"."</td>";
+						echo"<td>"."<b>"." Zip Code" ."</b>"."</td>";
 						while($row=mssql_fetch_array($result))
 							{
 								
@@ -122,20 +92,15 @@ Class Check extends Connection
 				        		$x++;
 								echo '<tr'.$color.'>';
 								echo"<td>".$x."</td>";
-								echo"<td>". $row['Campaign'] ."</td>";
 								echo"<td>". $row['PhoneNumber'] ."</td>";
-								echo"<td>". $row['Name']."</td>";
-								echo"<td>". $row['CODE2'] ."</td>";
-								echo"<td>". $row['Address'] ."</td>";
-								echo"<td>".$row['Application_Date'] ."</td>";
-								echo"<td>". $row['Activation_Date'] ."</td>";
-								echo"<td>". $row['Appointment_Time'] ."</td>";
-								echo"<td>".$row['ADSL_No'] ."</td>";
-								echo"<td>".$row['Mobile_No'] ."</td>";
-								echo"<td>".$row['Customer_Request'] ."</td>";
-								echo "<td>".'<a target="_blank" href="data_view.php?id='.$row['PhoneNumber'].' ">View All Info</a>'."</td>";
-								echo "<td>".'<a target="_blank" href="data.php?id='.$row['PhoneNumber'].'&campaign='.$row['Campaign'] .'  ">View Call History</a>'."</td>";
-								
+								echo"<td>". $row['First_Name'] ."</td>";
+								echo"<td>". $row['Last_Name']."</td>";
+								echo"<td>". $row['Company'] ."</td>";
+								echo"<td>". $row['Title'] ."</td>";
+								echo"<td>".$row['Address'] ."</td>";
+								echo"<td>". $row['Address2'] ."</td>";
+								echo"<td>". $row['State'] ."</td>";
+								echo"<td>".$row['Zip_Code'] ."</td>";
 								
 								echo"</tr>";
 
